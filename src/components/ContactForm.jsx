@@ -26,7 +26,7 @@ function CustomSelect({ label, name, options, value, onChange, error }) {
         type="button"
         onClick={() => setOpen(v => !v)}
         className={`w-full px-4 py-3 rounded-xl border bg-white/5 text-left text-sm flex items-center justify-between transition-all focus:outline-none ${
-          error ? 'border-red-500 ring-2 ring-red-200/20' : open ? 'border-[#B62E28] ring-2 ring-[#B62E28]/20' : 'border-white/10 hover:border-white/25'
+          error ? 'border-red-500 ring-2 ring-red-200/20' : open ? 'border-[#0055DF] ring-2 ring-[#0055DF]/20' : 'border-white/10 hover:border-white/25'
         }`}
       >
         <span className={selected ? 'text-white' : 'text-slate-500'}>{selected ? selected.label : '-Please Choose An Option-'}</span>
@@ -41,7 +41,7 @@ function CustomSelect({ label, name, options, value, onChange, error }) {
               type="button"
               onClick={() => { onChange({ target: { name, value: opt.value } }); setOpen(false); }}
               className={`w-full px-4 py-2.5 text-left text-sm flex items-center justify-between hover:bg-white/5 transition-colors ${
-                value === opt.value ? 'text-[#B62E28] font-semibold' : 'text-slate-300'
+                value === opt.value ? 'text-[#0055DF] font-semibold' : 'text-slate-300'
               }`}
             >
               <span>{opt.label}</span>
@@ -125,23 +125,23 @@ export default function ContactForm() {
   };
 
   const inputClass = (field) =>
-    `w-full px-4 py-3 rounded-xl border bg-white/5 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#B62E28] transition-all ${
+    `w-full px-4 py-3 rounded-xl border bg-white/5 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#0055DF] transition-all ${
       errors[field] ? 'border-red-500 ring-2 ring-red-200/20' : 'border-white/10 hover:border-white/25'
     }`;
 
   return (
     <section id="contact" className="py-20 bg-black relative overflow-hidden">
-      {/* Red radial glow */}
+      {/* Blue radial glow */}
       <div 
         className="absolute top-0 left-0 w-[600px] h-[600px] opacity-70 pointer-events-none -z-0"
-        style={{ backgroundImage: 'radial-gradient(circle at top left, rgba(182,46,40,0.35) 0%, rgba(182,46,40,0.08) 45%, transparent 70%)' }}
+        style={{ backgroundImage: 'radial-gradient(circle at top left, rgba(0,85,223,0.35) 0%, rgba(0,85,223,0.08) 45%, transparent 70%)' }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         {/* ── Left Column ── */}
         <div className="lg:col-span-6 flex flex-col items-start text-left pt-2">
-          <span className="text-[#B62E28] text-xs font-bold uppercase tracking-widest block mb-3">CONTACT US</span>
+          <span className="text-[#0055DF] text-xs font-bold uppercase tracking-widest block mb-3">CONTACT US</span>
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[46px] text-white leading-tight mb-4">
             Ready to Grow <br />Your Brand?
           </h2>

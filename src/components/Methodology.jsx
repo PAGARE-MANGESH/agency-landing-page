@@ -15,12 +15,12 @@ export default function Methodology() {
       optimizedQuery: 'Blood test near Green Park Metro',
       competition: 'Low (-58%)',
       conversion: 'High (+132%)',
-      color: '#B62E28',
-      bgColor: 'bg-red-500',
-      accentBg: 'bg-[#FDECEC]',
-      textAccent: 'text-[#B62E28]',
-      borderColor: 'border-red-200',
-      lightColor: 'rgba(182, 46, 40, 0.1)'
+      color: '#0055DF',
+      bgColor: 'bg-blue-600',
+      accentBg: 'bg-[#F4F7FC]',
+      textAccent: 'text-[#0055DF]',
+      borderColor: 'border-blue-100',
+      lightColor: 'rgba(0, 85, 223, 0.1)'
     },
     Food: {
       icon: <Utensils className="w-5 h-5" />,
@@ -82,8 +82,8 @@ export default function Methodology() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
           <div className="lg:col-span-6 text-left">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-0.5 bg-[#B62E28]"></div>
-              <span className="text-[#B62E28] text-xs sm:text-sm font-semibold uppercase tracking-widest">
+              <div className="w-8 h-0.5 bg-[#0055DF]"></div>
+              <span className="text-[#0055DF] text-xs sm:text-sm font-semibold uppercase tracking-widest">
                 From city-level to hyper-local
               </span>
             </div>

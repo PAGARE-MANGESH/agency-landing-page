@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { FadeLeft, FadeRight, VIEWPORT, staggerContainer, staggerItem } from '../utils/animations.jsx';
 
 export default function Testimonials() {
@@ -56,16 +56,16 @@ export default function Testimonials() {
           {/* Left Text Side */}
           <FadeLeft className="lg:col-span-8 text-left">
             {/* Client Obsession Badge */}
-            <div className="inline-flex items-center gap-1.5 bg-red-50 border border-red-100 px-3 py-1 rounded-full mb-4">
-              <span className="text-[10px] sm:text-xs font-bold text-[#B62E28] tracking-wider uppercase flex items-center gap-1">
-                ★ Client Obsession
+            <div className="flex flex-col items-start">
+              <span className="text-[10px] sm:text-xs font-bold text-[#0055DF] tracking-wider uppercase flex items-center gap-1">
+                <Sparkles className="w-3 h-3 fill-current" />
+                <span>Our Impact</span>
               </span>
+              <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[46px] text-slate-900 tracking-tight leading-[1.1] uppercase mt-2">
+                Results that <span className="text-[#0055DF]">Speak volumes.</span>
+              </h2>
             </div>
-            
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[46px] text-slate-900 leading-[1.1] tracking-tight mb-4 uppercase">
-              Results that <span className="text-[#B62E28]">Speak volumes.</span>
-            </h2>
-            <p className="text-slate-500 text-sm sm:text-base max-w-xl leading-relaxed">
+            <p className="text-slate-500 text-sm sm:text-base max-w-xl leading-relaxed mt-4">
               Real outcomes from operators who care about efficiency, transparency, and scale.
             </p>
           </FadeLeft>

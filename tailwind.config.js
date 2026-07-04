@@ -12,14 +12,20 @@ export default {
       },
       colors: {
         brand: {
-          navy: '#0C0E12',
-          secondarySlate: '#5F6470',
-          lightRow: '#F8FAFC',
-          redStart: '#EF4444',
-          orangeEnd: '#F97316',
-          accentRed: '#B62E28',
-          accentGreen: '#00D285',
-          accentGreenLight: '#70E0A3'
+          blue: '#0055DF',
+          yellow: '#FFC700',
+          navy: '#0A1931',
+          slate: '#64748B',
+          bgLight: '#FFFFFF',
+          bgSecondary: '#F4F7FC',
+          
+          // Legacy mappings to prevent styling breaks
+          navyLegacy: '#0C0E12',
+          secondarySlate: '#64748B',
+          lightRow: '#F4F7FC',
+          accentRed: '#0055DF',
+          accentGreen: '#FFC700',
+          accentGreenLight: '#FFE380'
         }
       }
     },

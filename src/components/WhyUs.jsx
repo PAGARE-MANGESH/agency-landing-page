@@ -38,16 +38,16 @@ export default function WhyUs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
           <FadeLeft className="lg:col-span-7 text-left">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-0.5 bg-[#B62E28]"></div>
-              <span className="text-[#B62E28] text-xs sm:text-sm font-semibold uppercase tracking-widest">Why Us?</span>
+              <div className="w-8 h-0.5 bg-[#0055DF]"></div>
+              <span className="text-[#0055DF] text-xs sm:text-sm font-semibold uppercase tracking-widest">Why Us?</span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] text-slate-900 tracking-tight leading-[1.1] uppercase">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] text-[#0A1931] tracking-tight leading-[1.1] uppercase">
               What Makes <br />
-              <span className="font-extrabold text-[#0c0e12]">GetFound Different</span>
+              <span className="font-extrabold text-[#0055DF]">GetFound Different</span>
             </h2>
           </FadeLeft>
           
-          <FadeRight delay={0.15} className="lg:col-span-5 text-left text-slate-500 text-sm sm:text-base leading-relaxed lg:pt-6">
+          <FadeRight delay={0.15} className="lg:col-span-5 text-left text-[#64748B] text-sm sm:text-base leading-relaxed lg:pt-6">
             <p>
               GetFound brings together real multi-location SEO experience, industry-specific execution, and transparent performance tracking to help growing businesses scale visibility, rankings, and enquiries across markets.
             </p>
@@ -62,11 +62,11 @@ export default function WhyUs() {
             <motion.div
               whileHover={{ scale: 1.08, rotate: -4 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="w-14 h-14 rounded-2xl bg-[#DEF7EC] text-[#03543F] flex items-center justify-center mb-6 shadow-sm"
+              className="w-14 h-14 rounded-2xl bg-[#0055DF]/10 text-[#0055DF] flex items-center justify-center mb-6 shadow-sm"
             >
               <Network className="w-6 h-6" />
             </motion.div>
-            <h3 className="font-heading font-extrabold text-xl text-slate-900 mb-6">Our approach is built on</h3>
+            <h3 className="font-heading font-extrabold text-xl text-[#0A1931] mb-6">Our approach is built on</h3>
             <motion.ul
               variants={staggerContainer(0.1, 0.2)}
               initial="hidden"
@@ -76,10 +76,10 @@ export default function WhyUs() {
             >
               {column1Items.map((item, idx) => (
                 <motion.li key={idx} variants={staggerItemLeft} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#FCE8E6] text-[#B62E28] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-[#0055DF]/10 text-[#0055DF] flex items-center justify-center shrink-0 mt-0.5">
                     {item.icon}
                   </div>
-                  <span className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed font-medium">{item.label}</span>
+                  <span className="text-[#64748B] text-xs sm:text-[13.5px] leading-relaxed font-medium">{item.label}</span>
                 </motion.li>
               ))}
             </motion.ul>
@@ -90,11 +90,11 @@ export default function WhyUs() {
             <motion.div
               whileHover={{ scale: 1.08, rotate: 4 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="w-14 h-14 rounded-2xl bg-[#E1F5FE] text-[#0288D1] flex items-center justify-center mb-6 shadow-sm"
+              className="w-14 h-14 rounded-2xl bg-[#0055DF]/10 text-[#0055DF] flex items-center justify-center mb-6 shadow-sm"
             >
               <Sprout className="w-6 h-6" />
             </motion.div>
-            <h3 className="font-heading font-extrabold text-xl text-slate-900 mb-6">Trusted by Growing Businesses</h3>
+            <h3 className="font-heading font-extrabold text-xl text-[#0A1931] mb-6">Trusted by Growing Businesses</h3>
             <motion.ul
               variants={staggerContainer(0.1, 0.2)}
               initial="hidden"
@@ -104,10 +104,10 @@ export default function WhyUs() {
             >
               {column2Items.map((item, idx) => (
                 <motion.li key={idx} variants={staggerItemLeft} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#FCE8E6] text-[#B62E28] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-[#0055DF]/10 text-[#0055DF] flex items-center justify-center shrink-0 mt-0.5">
                     {item.icon}
                   </div>
-                  <span className="text-slate-600 text-xs sm:text-[13.5px] leading-relaxed font-medium">{item.label}</span>
+                  <span className="text-[#64748B] text-xs sm:text-[13.5px] leading-relaxed font-medium">{item.label}</span>
                 </motion.li>
               ))}
             </motion.ul>
@@ -118,11 +118,11 @@ export default function WhyUs() {
             <motion.div
               whileHover={{ scale: 1.08, rotate: -4 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="w-14 h-14 rounded-2xl bg-[#F3E8FF] text-[#6B21A8] flex items-center justify-center mb-6 shadow-sm"
+              className="w-14 h-14 rounded-2xl bg-[#0055DF]/10 text-[#0055DF] flex items-center justify-center mb-6 shadow-sm"
             >
               <Settings className="w-6 h-6" />
             </motion.div>
-            <h3 className="font-heading font-extrabold text-xl text-slate-900 mb-6">Industries We Serve</h3>
+            <h3 className="font-heading font-extrabold text-xl text-[#0A1931] mb-6">Industries We Serve</h3>
             <motion.div
               variants={staggerContainer(0.08, 0.2)}
               initial="hidden"
@@ -132,10 +132,10 @@ export default function WhyUs() {
             >
               {column3Items.map((item, idx) => (
                 <motion.div key={idx} variants={staggerItem} className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-[#FCE8E6] text-[#B62E28] flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-full bg-[#0055DF]/10 text-[#0055DF] flex items-center justify-center shrink-0 mt-0.5">
                     {item.icon}
                   </div>
-                  <span className="text-slate-600 text-xs sm:text-[13px] leading-snug font-medium">{item.label}</span>
+                  <span className="text-[#64748B] text-xs sm:text-[13px] leading-snug font-medium">{item.label}</span>
                 </motion.div>
               ))}
             </motion.div>

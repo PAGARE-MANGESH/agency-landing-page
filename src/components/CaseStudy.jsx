@@ -102,7 +102,7 @@ export default function CaseStudy() {
                 <div 
                   key={item.id} 
                   className={`border rounded-2xl overflow-hidden transition-all duration-300 ${
-                    isOpen ? 'border-red-200 bg-red-50/10 shadow-sm' : 'border-slate-100 bg-white hover:border-slate-200'
+                    isOpen ? 'border-blue-200 bg-blue-50/10 shadow-sm' : 'border-slate-100 bg-white hover:border-slate-200'
                   }`}
                 >
                   <button
@@ -110,7 +110,7 @@ export default function CaseStudy() {
                     className="w-full flex items-center justify-between p-4 text-left transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#B62E28] text-white flex items-center justify-center shadow-sm">
+                      <div className="w-8 h-8 rounded-lg bg-[#0055DF] text-white flex items-center justify-center shadow-sm">
                         {item.icon}
                       </div>
                       <span className="font-bold text-slate-800 text-sm sm:text-base">
@@ -144,11 +144,11 @@ export default function CaseStudy() {
           </FadeLeft>
 
           {/* Center Column: Highlights Block */}
-          <FadeUp delay={0.1} className="lg:col-span-5 bg-[#F4FBF7] rounded-3xl p-6 sm:p-8 border border-[#E6F7F0] space-y-6 flex flex-col justify-between self-stretch">
+          <FadeUp delay={0.1} className="lg:col-span-5 bg-[#F4F7FC] rounded-3xl p-6 sm:p-8 border border-slate-200/50 space-y-6 flex flex-col justify-between self-stretch">
             <div className="space-y-6">
               {/* Point 1 */}
               <div className="flex items-start gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#00D285] mt-2 shrink-0 animate-pulse"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-[#0055DF] mt-2 shrink-0 animate-pulse"></div>
                 <p className="text-slate-700 font-semibold text-sm sm:text-base leading-snug">
                   400%+ increase in local SEO visibility
                 </p>
@@ -172,22 +172,22 @@ export default function CaseStudy() {
             </div>
 
             {/* Top Hyperlocal Searches Box */}
-            <div className="bg-white rounded-2xl p-5 border border-[#DEF7EC] mt-8 shadow-sm">
-              <div className="flex items-center gap-2 mb-3 text-[#065F46]">
+            <div className="bg-white rounded-2xl p-5 border border-blue-100 mt-8 shadow-sm">
+              <div className="flex items-center gap-2 mb-3 text-[#0055DF]">
                 <Search className="w-4 h-4 font-bold" />
                 <span className="font-bold text-sm uppercase tracking-wider">Top Hyperlocal Searches</span>
               </div>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-slate-600 text-xs sm:text-sm">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#00D285]"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#FFC700]"></div>
                   blood test near me
                 </li>
                 <li className="flex items-center gap-2 text-slate-600 text-xs sm:text-sm">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#00D285]"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#FFC700]"></div>
                   pathology lab near me
                 </li>
                 <li className="flex items-center gap-2 text-slate-600 text-xs sm:text-sm">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#00D285]"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#FFC700]"></div>
                   diagnostic center in Delhi NCR
                 </li>
               </ul>

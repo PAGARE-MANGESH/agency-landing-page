@@ -31,10 +31,10 @@ export default function FAQ() {
         
         {/* Title fades up */}
         <FadeUp className="text-center mb-12">
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[46px] text-[#0C0E12] leading-[1.1] mb-4">
-            <span className="text-[#B62E28]">Frequently asked</span> questions
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[46px] text-[#0A1931] leading-[1.1] mb-4">
+            <span className="text-[#0055DF]">Frequently asked</span> questions
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#64748B] text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             We believe in clear communication from day one. Here are answers to some common questions we receive. If you have a question that isn't answered here, please don't hesitate to reach out.
           </p>
         </FadeUp>
@@ -54,16 +54,16 @@ export default function FAQ() {
                 key={idx}
                 variants={staggerItem}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen ? 'border-red-100 bg-[#F8FAFC]/90 shadow-sm' : 'border-slate-100 bg-[#F8FAFC]/50 hover:bg-[#F8FAFC]/80'
+                  isOpen ? 'border-blue-100 bg-[#F4F7FC]/90 shadow-sm' : 'border-slate-100 bg-[#F4F7FC]/40 hover:bg-[#F4F7FC]/70'
                 }`}
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left font-bold text-[#0C0E12] text-sm sm:text-base focus:outline-none"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left font-bold text-[#0A1931] text-sm sm:text-base focus:outline-none"
                 >
                   <span>{item.q}</span>
                   <motion.div
-                    animate={{ rotate: isOpen ? 90 : 0, backgroundColor: isOpen ? '#1e293b' : '#B62E28' }}
+                    animate={{ rotate: isOpen ? 90 : 0, backgroundColor: isOpen ? '#0A1931' : '#0055DF' }}
                     transition={{ duration: 0.25 }}
                     className="w-8 h-8 rounded-full text-white flex items-center justify-center shrink-0 shadow-sm"
                   >
@@ -79,7 +79,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      <div className="px-6 pb-5 text-slate-550 text-[13.5px] leading-relaxed border-t border-slate-100/50 pt-3">
+                      <div className="px-6 pb-5 text-[#64748B] text-[13.5px] leading-relaxed border-t border-slate-100/50 pt-3">
                         {item.a}
                       </div>
                     </motion.div>

@@ -14,18 +14,18 @@ export default function CtaBanner() {
   return (
     <section id="cta-audit" className="w-full bg-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="relative rounded-3xl bg-gradient-to-br from-[#FFF4F4] via-white to-[#FFF0F0] border border-red-50/50 p-8 sm:p-12 lg:p-16 overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.02)] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative rounded-3xl bg-[#F4F7FC] border border-slate-200/50 p-8 sm:p-12 lg:p-16 overflow-hidden shadow-[0_15px_50px_rgba(0,85,223,0.015)] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Background decorative circles */}
-          <div className="absolute top-[-50px] left-[-50px] w-64 h-64 rounded-full bg-red-100/10 pointer-events-none"></div>
-          <div className="absolute bottom-[-50px] right-[-50px] w-80 h-80 rounded-full bg-red-100/10 pointer-events-none"></div>
+          <div className="absolute top-[-50px] left-[-50px] w-64 h-64 rounded-full bg-[#0055DF]/5 pointer-events-none"></div>
+          <div className="absolute bottom-[-50px] right-[-50px] w-80 h-80 rounded-full bg-[#0055DF]/5 pointer-events-none"></div>
 
           {/* Left Column — slides in from left */}
           <FadeLeft className="lg:col-span-7 flex flex-col items-start text-left relative z-10">
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[42px] text-[#0C0E12] leading-[1.15] mb-3 uppercase">
-              Get a <span className="text-[#00D285]">FREE</span> Local SEO Audit
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[42px] text-[#0A1931] leading-[1.15] mb-3 uppercase">
+              Get a <span className="text-[#0055DF]">FREE</span> Local SEO Audit
             </h2>
-            <p className="text-slate-500 text-sm sm:text-base mb-8 font-medium">
+            <p className="text-[#64748B] text-sm sm:text-base mb-8 font-medium">
               Get a detailed audit and actionable insights within 48 Hours.
             </p>
 
@@ -51,11 +51,11 @@ export default function CtaBanner() {
                     whileInView={{ scale: 1 }}
                     viewport={VIEWPORT}
                     transition={{ type: 'spring', stiffness: 300, delay: 0.3 + idx * 0.1 }}
-                    className="w-6 h-6 rounded-full bg-[#B62E28] text-white flex items-center justify-center shrink-0 shadow-sm"
+                    className="w-6 h-6 rounded-full bg-[#0055DF] text-white flex items-center justify-center shrink-0 shadow-sm"
                   >
                     <Check className="w-3.5 h-3.5 stroke-[3]" />
                   </motion.div>
-                  <span className="text-slate-700 text-sm sm:text-base font-bold">{feature}</span>
+                  <span className="text-[#0A1931] text-sm sm:text-base font-bold">{feature}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -66,9 +66,9 @@ export default function CtaBanner() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT}
                 transition={{ delay: 0.6, duration: 0.5 }}
-                whileHover={{ scale: 1.04, boxShadow: '0 12px 30px rgba(182,46,40,0.3)' }}
+                whileHover={{ scale: 1.04, boxShadow: '0 12px 30px rgba(255,199,0,0.3)' }}
                 whileTap={{ scale: 0.97 }}
-                className="px-8 py-4 rounded-full bg-[#B62E28] hover:bg-[#A02823] text-white font-bold text-xs sm:text-sm shadow-md transition-all duration-300 uppercase tracking-wider"
+                className="px-8 py-4 rounded-full bg-[#FFC700] hover:bg-[#E5B300] text-[#0A1931] font-extrabold text-xs sm:text-sm shadow-md transition-all duration-300 uppercase tracking-wider"
               >
                 Request your free local SEO audit
               </motion.button>
@@ -102,7 +102,7 @@ export default function CtaBanner() {
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
                 className="absolute top-[10%] left-[-15px]"
               >
-                <div className="w-10 h-10 rounded-full bg-white text-[#B62E28] flex items-center justify-center shadow-lg border border-red-100">
+                <div className="w-10 h-10 rounded-full bg-white text-[#0055DF] flex items-center justify-center shadow-lg border border-blue-100">
                   <span className="text-lg">📍</span>
                 </div>
               </motion.div>

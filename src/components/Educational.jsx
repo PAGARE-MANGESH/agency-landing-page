@@ -35,26 +35,26 @@ export default function Educational() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="lg:col-span-6 flex flex-col items-start text-left"
         >
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[#252525] tracking-tight mb-6">
-            What is <span className="font-extrabold text-[#B62E28]">Local</span> <span className="font-extrabold text-[#252525]">SEO</span>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[#0A1931] tracking-tight mb-6">
+            What is <span className="font-extrabold text-[#0055DF]">Local</span> <span className="font-extrabold text-[#0A1931]">SEO</span>
           </h2>
           
-          <p className="text-slate-650 text-[15px] sm:text-base mb-6 leading-relaxed">
-            Local SEO is the <strong className="text-slate-900 font-semibold">process of optimizing your business to appear in</strong> <strong className="text-[#00A355] font-semibold">location-based searches</strong> <strong className="text-slate-900 font-semibold">and capture</strong> <strong className="text-[#0194fc] font-semibold">high-intent customers</strong> at the exact moment they are ready to take action.
+          <p className="text-[#64748B] text-[15px] sm:text-base mb-6 leading-relaxed">
+            Local SEO is the <strong className="text-[#0A1931] font-semibold">process of optimizing your business to appear in</strong> <strong className="text-[#0055DF] font-semibold">location-based searches</strong> <strong className="text-[#0A1931] font-semibold">and capture</strong> <strong className="text-[#0055DF] font-semibold">high-intent customers</strong> at the exact moment they are ready to take action.
           </p>
 
-          <p className="text-slate-500 text-sm sm:text-base mb-8 leading-relaxed">
+          <p className="text-[#64748B] text-sm sm:text-base mb-8 leading-relaxed">
             It focuses on improving your visibility in Google Maps and the Local Pack, helping your business rank for searches that directly lead to calls, visits, and conversions.
           </p>
 
-                   {/* Two side-by-side metric cards */}
+          {/* Two side-by-side metric cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-8">
             
             {/* Card 1: Google Maps Visibility */}
             <motion.div 
               whileHover={{ y: -6, scale: 1.025, boxShadow: '0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 8px 10px -6px rgba(16, 185, 129, 0.05)' }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="p-5 rounded-2xl border border-emerald-500/10 hover:border-emerald-500/30 bg-gradient-to-b from-white to-[#F8FAFC] shadow-[0_4px_25px_rgba(0,0,0,0.015)] cursor-pointer"
+              className="p-5 rounded-2xl border border-emerald-500/10 hover:border-emerald-500/30 bg-gradient-to-b from-white to-[#F4F7FC] shadow-[0_4px_25px_rgba(0,0,0,0.015)] cursor-pointer"
             >
               <div className="flex items-center gap-2 mb-4 text-[#00A355] font-bold text-xs uppercase tracking-wider">
                 <div className="p-1 rounded-full bg-emerald-50 text-emerald-600">
@@ -84,17 +84,17 @@ export default function Educational() {
 
             {/* Card 2: Google Maps Business Listing */}
             <motion.div 
-              whileHover={{ y: -6, scale: 1.025, boxShadow: '0 20px 25px -5px rgba(239, 68, 68, 0.1), 0 8px 10px -6px rgba(239, 68, 68, 0.05)' }}
+              whileHover={{ y: -6, scale: 1.025, boxShadow: '0 20px 25px -5px rgba(0, 85, 223, 0.08), 0 8px 10px -6px rgba(0, 85, 223, 0.03)' }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="p-5 rounded-2xl border border-red-500/10 hover:border-red-500/30 bg-gradient-to-b from-white to-[#F8FAFC] shadow-[0_4px_25px_rgba(0,0,0,0.015)] text-left flex flex-col justify-between cursor-pointer"
+              className="p-5 rounded-2xl border border-blue-500/10 hover:border-blue-500/30 bg-gradient-to-b from-white to-[#F4F7FC] shadow-[0_4px_25px_rgba(0,0,0,0.015)] text-left flex flex-col justify-between cursor-pointer"
             >
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-7 h-7 rounded-full bg-[#B62E28] text-white flex items-center justify-center font-bold text-xs">
+                  <div className="w-7 h-7 rounded-full bg-[#0055DF] text-white flex items-center justify-center font-bold text-xs">
                     M
                   </div>
                   <div>
-                    <h4 className="font-bold text-xs text-slate-900 leading-tight">Metropolis Diagnostic Network</h4>
+                    <h4 className="font-bold text-xs text-[#0A1931] leading-tight">Metropolis Diagnostic Network</h4>
                     <span className="text-[10px] text-slate-400 block">- Lower Parel</span>
                   </div>
                 </div>
@@ -104,11 +104,11 @@ export default function Educational() {
                       <Star key={i} className="w-2.5 h-2.5 fill-current" />
                     ))}
                   </div>
-                  <span className="text-[9px] text-slate-500 font-semibold">4.8 (1234)</span>
+                  <span className="text-[9px] text-[#64748B] font-semibold">4.8 (1234)</span>
                 </div>
-                <span className="text-[9px] text-slate-400 block mb-1">Diagnostic center · Open now</span>
+                <span className="text-[9px] text-[#64748B] block mb-1">Diagnostic center · Open now</span>
               </div>
-              <div className="border-t border-slate-100 pt-2 mt-2 flex justify-between text-[9px] text-slate-500 font-bold">
+              <div className="border-t border-slate-100 pt-2 mt-2 flex justify-between text-[9px] text-[#64748B] font-bold">
                 <span>Top 3 Local Pack</span>
                 <span className="text-[#00A355]">✓ Verified</span>
               </div>
@@ -116,13 +116,13 @@ export default function Educational() {
 
           </div>
 
-          {/* Link button with red circle arrow */}
+          {/* Link button with blue circle arrow */}
           <a 
             href="#contact" 
-            className="inline-flex items-center gap-3 font-bold text-sm tracking-widest text-[#0C0E12] hover:text-[#B62E28] transition-all group uppercase"
+            className="inline-flex items-center gap-3 font-bold text-sm tracking-widest text-[#0A1931] hover:text-[#0055DF] transition-all group uppercase"
           >
             <span>GET STARTED</span>
-            <div className="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-[#B62E28] group-hover:bg-[#B62E28] group-hover:text-white transition-all shadow-sm">
+            <div className="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-[#0055DF] group-hover:bg-[#0055DF] group-hover:text-white transition-all shadow-sm">
               <ArrowUpRight className="w-5 h-5" />
             </div>
           </a>

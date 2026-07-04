@@ -16,8 +16,8 @@ export default function StatHook() {
         {/* Left Side: Stat and Description */}
         <div className="lg:col-span-6 flex flex-col items-start text-left">
           
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#0C0E12] leading-[1.25] tracking-tight mb-8">
-            <span className="text-[#B62E28]">76% Of</span>{' '}
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#0A1931] leading-[1.25] tracking-tight mb-8">
+            <span className="text-[#0055DF]">76% Of</span>{' '}
             {/* Google Search badge */}
             <motion.span 
               whileHover={{ scale: 1.15, rotate: 8 }}
@@ -42,25 +42,25 @@ export default function StatHook() {
                 />
               </svg>
             </motion.span>{' '}
-            <span className="text-[#B62E28]">Local Searches</span>{' '}
+            <span className="text-[#0055DF]">Local Searches</span>{' '}
             Result In A Visit Or Action Within 24 Hours
           </h2>
 
-          <p className="text-slate-655 text-sm sm:text-base mb-6 leading-relaxed">
+          <p className="text-[#64748B] text-sm sm:text-base mb-6 leading-relaxed">
             If your business is not ranking in local search results, you are missing customers who are ready to take action.
           </p>
 
-          <p className="text-slate-655 text-sm sm:text-base mb-8 leading-relaxed">
+          <p className="text-[#64748B] text-sm sm:text-base mb-8 leading-relaxed">
             GBIM helps businesses improve their presence in Google Maps and local search results using data-driven strategies backed by real campaign performance across competitive industries.
           </p>
 
-          {/* Link button with red circle arrow */}
+          {/* Link button with blue circle arrow */}
           <a 
             href="#contact" 
-            className="inline-flex items-center gap-3 font-bold text-sm tracking-widest text-[#0C0E12] hover:text-[#B62E28] transition-all group uppercase"
+            className="inline-flex items-center gap-3 font-bold text-sm tracking-widest text-[#0A1931] hover:text-[#0055DF] transition-all group uppercase"
           >
             <span>GET STARTED</span>
-            <div className="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-[#B62E28] group-hover:bg-[#B62E28] group-hover:text-white transition-all shadow-sm">
+            <div className="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-[#0055DF] group-hover:bg-[#0055DF] group-hover:text-white transition-all shadow-sm">
               <ArrowUpRight className="w-5 h-5" />
             </div>
           </a>

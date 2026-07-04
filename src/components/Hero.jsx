@@ -26,9 +26,9 @@ export default function Hero() {
       className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-cover bg-center lg:bg-[length:100%_100%] min-h-[90vh] flex items-center transition-all duration-300"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      {/* Decorative Blur Spheres */}
-      <div className="absolute top-1/4 left-[5%] w-64 h-64 bg-[#B62E28]/15 rounded-full glow-sphere pointer-events-none" />
-      <div className="absolute bottom-1/4 right-[10%] w-80 h-80 bg-[#00D285]/12 rounded-full glow-sphere pointer-events-none" style={{ animationDelay: '2s' }} />
+      {/* Decorative Blur Spheres (Blue / Soft Yellow) */}
+      <div className="absolute top-1/4 left-[5%] w-64 h-64 bg-[#0055DF]/10 rounded-full glow-sphere pointer-events-none" />
+      <div className="absolute bottom-1/4 right-[10%] w-80 h-80 bg-[#FFC700]/10 rounded-full glow-sphere pointer-events-none" style={{ animationDelay: '2s' }} />
 
       {/* Grid overlay layout for alignment */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -41,18 +41,18 @@ export default function Hero() {
           className="lg:col-span-7 flex flex-col items-start text-left"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FDECEC] border border-red-100 text-[#B62E28] text-xs sm:text-sm font-semibold mb-6 shadow-sm">
-            <MapPin className="w-4 h-4 fill-current animate-bounce" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0055DF]/5 border border-[#0055DF]/15 text-[#0055DF] text-xs sm:text-sm font-semibold mb-6 shadow-sm">
+            <MapPin className="w-4 h-4 text-[#FFC700] fill-[#FFC700] animate-bounce" />
             <span>Local SEO Services in India</span>
           </div>
           
           {/* Main Heading */}
-          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#0C0E12] leading-[1.15] tracking-tight mb-6">
+          <h1 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-[#0A1931] leading-[1.15] tracking-tight mb-6">
             Increase{' '}
-            <span className="relative inline-block font-extrabold text-[#B62E28] whitespace-nowrap mr-2">
+            <span className="relative inline-block font-extrabold text-[#0055DF] whitespace-nowrap mr-2">
               Local Visibility
-              {/* Hand-drawn green brush underline effect */}
-              <svg className="absolute left-0 top-[90%] w-full h-3 text-[#00D285]" viewBox="0 0 100 10" preserveAspectRatio="none">
+              {/* Hand-drawn yellow brush underline effect */}
+              <svg className="absolute left-0 top-[90%] w-full h-3 text-[#FFC700]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <motion.path 
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -65,20 +65,20 @@ export default function Hero() {
                 />
               </svg>
             </span>
-            and Drive <span className="font-extrabold text-[#0C0E12]">High-Intent Customers</span> to Your Business
+            and Drive <span className="font-extrabold text-[#0A1931]">High-Intent Customers</span> to Your Business
           </h1>
           
           {/* Description */}
-          <p className="text-base sm:text-lg text-slate-755 max-w-xl mb-8 leading-relaxed font-medium">
+          <p className="text-base sm:text-lg text-[#64748B] max-w-xl mb-8 leading-relaxed font-medium">
             Rank higher in Google Maps, local search, and near-me results with data-driven Local SEO.
           </p>
 
-          {/* Green CTA Button */}
+          {/* Yellow Accent CTA Button with Navy text */}
           <a href="#contact">
             <motion.button
-              whileHover={{ scale: 1.03, boxShadow: '0 20px 30px rgba(0,210,133,0.25)' }}
+              whileHover={{ scale: 1.03, boxShadow: '0 20px 30px rgba(255,199,0,0.25)' }}
               whileTap={{ scale: 0.98 }}
-              className="animate-pulse-cta inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#00D285] hover:bg-[#00B873] hover:ring-4 hover:ring-[#00D285]/20 text-white font-bold transition-all duration-300 transform active:scale-95 text-[15px] tracking-wide"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#FFC700] hover:bg-[#E5B300] hover:ring-4 hover:ring-[#FFC700]/20 text-[#0A1931] font-extrabold transition-all duration-300 transform active:scale-95 text-[15px] tracking-wide"
             >
               <Search className="w-5 h-5 stroke-[2.5]" />
               <span>GET A FREE LOCAL SEO AUDIT</span>

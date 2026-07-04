@@ -26,7 +26,7 @@ export default function App() {
     <div className="relative min-h-screen bg-white text-brand-navy selection:bg-indigo-100 selection:text-indigo-900">
       {/* Scroll Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#B62E28] to-[#FFC000] origin-left z-[100]" 
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0055DF] to-[#FFC700] origin-left z-[100]" 
         style={{ scaleX }}
       />
       

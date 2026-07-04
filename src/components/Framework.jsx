@@ -47,18 +47,18 @@ export default function Framework() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
           <FadeLeft className="lg:col-span-7 text-left">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-0.5 bg-[#B62E28]"></div>
-              <span className="text-[#B62E28] text-xs sm:text-sm font-semibold uppercase tracking-widest">
+              <div className="w-8 h-0.5 bg-[#0055DF]"></div>
+              <span className="text-[#0055DF] text-xs sm:text-sm font-semibold uppercase tracking-widest">
                 Our Offerings
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] text-slate-900 tracking-tight leading-[1.1] uppercase">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] text-[#0A1931] tracking-tight leading-[1.1] uppercase">
               Our Local <br />
-              <span className="font-extrabold text-[#0c0e12]">SEO Framework</span>
+              <span className="font-extrabold text-[#0A1931]">SEO Framework</span>
             </h2>
           </FadeLeft>
           
-          <FadeRight delay={0.15} className="lg:col-span-5 text-left text-slate-500 text-sm sm:text-base leading-relaxed lg:pt-6">
+          <FadeRight delay={0.15} className="lg:col-span-5 text-left text-[#64748B] text-sm sm:text-base leading-relaxed lg:pt-6">
             <p>
               Our local SEO framework is built to improve map visibility, strengthen city-wise rankings, and turn high-intent local searches into real business enquiries.
             </p>
@@ -76,7 +76,7 @@ export default function Framework() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y divide-slate-100 md:divide-y-0 lg:divide-y-0">
             {items.map((item, idx) => {
               const borderClasses = `
-                p-8 text-left transition-colors hover:bg-[#F8FAFC]/40 flex flex-col items-start
+                p-8 text-left transition-colors hover:bg-[#F4F7FC]/40 flex flex-col items-start
                 ${idx < 3 ? 'lg:border-b lg:border-slate-100' : ''}
                 ${idx % 3 !== 2 ? 'lg:border-r lg:border-slate-100' : ''}
                 ${idx % 2 !== 1 ? 'md:border-r md:border-slate-100' : ''}
@@ -94,12 +94,12 @@ export default function Framework() {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="w-10 h-10 rounded-xl bg-red-50 text-[#B62E28] flex items-center justify-center mb-6 shadow-sm"
+                    className="w-10 h-10 rounded-xl bg-[#0055DF]/10 text-[#0055DF] flex items-center justify-center mb-6 shadow-sm"
                   >
                     {item.icon}
                   </motion.div>
                   
-                  <h3 className="font-heading font-extrabold text-base text-[#0C0E12] mb-3 leading-snug">
+                  <h3 className="font-heading font-extrabold text-base text-[#0A1931] mb-3 leading-snug">
                     {item.title}
                   </h3>
                   
