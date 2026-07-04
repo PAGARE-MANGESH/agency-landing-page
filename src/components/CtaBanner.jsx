@@ -1,115 +1,102 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Check } from 'lucide-react';
-import humanFrame from '../../assets/human-frame.webp';
-import { FadeLeft, FadeRight, VIEWPORT, staggerContainer, staggerItem } from '../utils/animations.jsx';
+import { Phone, MapPin, MessageCircle } from 'lucide-react';
+import { FadeUp } from '../utils/animations.jsx';
 
 export default function CtaBanner() {
-  const features = [
-    'Identify Ranking Gaps',
-    'Discover Growth Opportunities',
-    'Get a Clear Strategy Tailored To Your Business'
-  ];
-
   return (
-    <section id="cta-audit" className="w-full bg-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="relative rounded-3xl bg-[#F4F7FC] border border-slate-200/50 p-8 sm:p-12 lg:p-16 overflow-hidden shadow-[0_15px_50px_rgba(0,85,223,0.015)] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Background decorative circles */}
-          <div className="absolute top-[-50px] left-[-50px] w-64 h-64 rounded-full bg-[#0055DF]/5 pointer-events-none"></div>
-          <div className="absolute bottom-[-50px] right-[-50px] w-80 h-80 rounded-full bg-[#0055DF]/5 pointer-events-none"></div>
+    <section className="w-full bg-[#0055DF] text-white py-20 relative overflow-hidden text-center">
+      {/* Decorative background glow circles */}
+      <div className="absolute top-[-100px] left-[-100px] w-80 h-80 rounded-full bg-white/5 pointer-events-none" />
+      <div className="absolute bottom-[-100px] right-[-100px] w-96 h-96 rounded-full bg-white/5 pointer-events-none" />
 
-          {/* Left Column — slides in from left */}
-          <FadeLeft className="lg:col-span-7 flex flex-col items-start text-left relative z-10">
-            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[42px] text-[#0A1931] leading-[1.15] mb-3 uppercase">
-              Get a <span className="text-[#0055DF]">FREE</span> Local SEO Audit
-            </h2>
-            <p className="text-[#64748B] text-sm sm:text-base mb-8 font-medium">
-              Get a detailed audit and actionable insights within 48 Hours.
-            </p>
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 relative z-10 flex flex-col items-center">
+        
+        {/* Header */}
+        <FadeUp>
+          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[44px] leading-tight mb-4">
+            Ready to Get Found?
+          </h2>
+          <p className="text-white/90 text-sm sm:text-base md:text-lg max-w-2xl mb-12 font-medium">
+            Contact us today for a FREE consultation. No strings attached – just real insights.
+          </p>
+        </FadeUp>
 
-            {/* Feature checklist — stagger from left */}
-            <motion.div
-              variants={staggerContainer(0.12, 0.3)}
-              initial="hidden"
-              whileInView="show"
-              viewport={VIEWPORT}
-              className="space-y-4 mb-8"
+        {/* 3 Contact Cards Grid */}
+        <FadeUp delay={0.15}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full mb-10">
+            {/* Card 1: Call Us */}
+            <motion.a 
+              href="tel:7039821730"
+              whileHover={{ y: -4, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
+              className="flex flex-col items-center justify-center p-8 rounded-2xl bg-white/10 border border-white/15 shadow-sm transition-all duration-300"
             >
-              {features.map((feature, idx) => (
-                <motion.div
-                  key={idx}
-                  variants={{
-                    hidden: { opacity: 0, x: -30 },
-                    show:   { opacity: 1, x: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } }
-                  }}
-                  className="flex items-center gap-3"
-                >
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={VIEWPORT}
-                    transition={{ type: 'spring', stiffness: 300, delay: 0.3 + idx * 0.1 }}
-                    className="w-6 h-6 rounded-full bg-[#0055DF] text-white flex items-center justify-center shrink-0 shadow-sm"
-                  >
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
-                  </motion.div>
-                  <span className="text-[#0A1931] text-sm sm:text-base font-bold">{feature}</span>
-                </motion.div>
-              ))}
+              <Phone className="w-8 h-8 text-white mb-4 stroke-[1.5]" />
+              <span className="font-bold text-sm sm:text-base text-white/80 uppercase tracking-wider mb-2">Call Us</span>
+              <span className="font-extrabold text-base sm:text-lg text-white flex items-center gap-1.5">
+                <span>📞</span>
+                <span>7039821730</span>
+              </span>
+            </motion.a>
+
+            {/* Card 2: Visit Us */}
+            <motion.div 
+              whileHover={{ y: -4, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
+              className="flex flex-col items-center justify-center p-8 rounded-2xl bg-white/10 border border-white/15 shadow-sm transition-all duration-300"
+            >
+              <MapPin className="w-8 h-8 text-white mb-4 stroke-[1.5]" />
+              <span className="font-bold text-sm sm:text-base text-white/80 uppercase tracking-wider mb-2">Visit Us</span>
+              <span className="font-extrabold text-base sm:text-lg text-white flex items-center gap-1.5">
+                <span>📍</span>
+                <span>Navi Mumbai</span>
+              </span>
             </motion.div>
 
-            <a href="#audit">
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={VIEWPORT}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                whileHover={{ scale: 1.04, boxShadow: '0 12px 30px rgba(255,199,0,0.3)' }}
-                whileTap={{ scale: 0.97 }}
-                className="px-8 py-4 rounded-full bg-[#FFC700] hover:bg-[#E5B300] text-[#0A1931] font-extrabold text-xs sm:text-sm shadow-md transition-all duration-300 uppercase tracking-wider"
-              >
-                Request your free local SEO audit
-              </motion.button>
-            </a>
-          </FadeLeft>
+            {/* Card 3: WhatsApp */}
+            <motion.a 
+              href="https://wa.me/917039821730"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -4, backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
+              className="flex flex-col items-center justify-center p-8 rounded-2xl bg-white/10 border border-white/15 shadow-sm transition-all duration-300"
+            >
+              <MessageCircle className="w-8 h-8 text-white mb-4 stroke-[1.5]" />
+              <span className="font-bold text-sm sm:text-base text-white/80 uppercase tracking-wider mb-2">WhatsApp</span>
+              <span className="font-extrabold text-base sm:text-lg text-white flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-green-400 inline-block animate-pulse shrink-0" />
+                <span>Chat Now</span>
+              </span>
+            </motion.a>
+          </div>
+        </FadeUp>
 
-          {/* Right Column — slides in from right */}
-          <FadeRight delay={0.2} className="lg:col-span-5 flex justify-center relative z-10 lg:pt-0 pt-6">
-            <div className="relative w-full max-w-[340px] sm:max-w-[400px]">
-              <img 
-                src={humanFrame} 
-                alt="Free Local SEO Audit Professional" 
-                className="w-full h-auto object-contain rounded-2xl"
-              />
-              
-              {/* Floating badge — bobs up/down */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-1/3 right-[-20px] bg-white border border-slate-100 shadow-[0_8px_30px_rgba(0,0,0,0.08)] rounded-2xl p-3 px-4 flex items-center gap-2 whitespace-nowrap"
-              >
-                <div className="w-6 h-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-4 h-4 fill-current" />
-                </div>
-                <span className="font-bold text-xs text-blue-600 uppercase tracking-wider">Actionable Insights</span>
-              </motion.div>
+        {/* Action Buttons */}
+        <FadeUp delay={0.3}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
+            {/* Consultation button */}
+            <motion.a 
+              href="#contact"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-7 py-3.5 bg-white text-[#0055DF] font-extrabold rounded-full shadow-md transition-all text-sm tracking-wide w-full sm:w-auto whitespace-nowrap"
+            >
+              Get Your FREE Consultation
+            </motion.a>
 
-              {/* Floating Pin — bounces */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute top-[10%] left-[-15px]"
-              >
-                <div className="w-10 h-10 rounded-full bg-white text-[#0055DF] flex items-center justify-center shadow-lg border border-blue-100">
-                  <span className="text-lg">📍</span>
-                </div>
-              </motion.div>
-            </div>
-          </FadeRight>
+            {/* WhatsApp Outline Button */}
+            <motion.a 
+              href="https://wa.me/917039821730"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+              whileTap={{ scale: 0.98 }}
+              className="px-7 py-3.5 bg-transparent border-2 border-white text-white font-extrabold rounded-full transition-all text-sm tracking-wide w-full sm:w-auto whitespace-nowrap"
+            >
+              Chat on WhatsApp
+            </motion.a>
+          </div>
+        </FadeUp>
 
-        </div>
       </div>
     </section>
   );

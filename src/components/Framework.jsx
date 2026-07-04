@@ -9,58 +9,58 @@ export default function Framework() {
   const items = [
     {
       icon: <Building2 className="w-5 h-5" />,
-      title: 'Google Business Profile Optimization',
-      desc: 'Fine-tuning your Google Business Profile for maximum Map Pack exposure.'
+      title: 'GMB Optimization',
+      desc: 'Complete Google My Business setup and optimization (Profile Setup & Verification, Business Info, Category Selection, Hours/Contact Updates) for maximum local visibility.'
     },
     {
       icon: <KeyRound className="w-5 h-5" />,
       title: 'Local Keyword Strategy',
-      desc: 'Discovery of high-intent geo-modifiers that drive local phone calls.'
+      desc: 'Target the exact search terms and geo-modifiers your customers use to find businesses like yours.'
     },
     {
       icon: <MapPinned className="w-5 h-5" />,
-      title: 'Location Page SEO',
-      desc: 'Structured data and local content for multi-branch landing pages.'
+      title: 'Citation Building',
+      desc: 'Build consistent business listings across all major directories, maps, and local platforms.'
     },
     {
       icon: <Globe className="w-5 h-5" />,
-      title: 'Technical SEO',
-      desc: 'Schema markup and page speed optimization for mobile users.'
+      title: 'Local Blogging',
+      desc: 'Content marketing focused on local topics, neighborhood news, and community engagement.'
     },
     {
       icon: <Link2 className="w-5 h-5" />,
-      title: 'Authority Building',
-      desc: 'Local citations and contextually relevant backlinks from regional sources.'
+      title: 'Photo/Video Uploads',
+      desc: 'Professional visual content updates that showcase your location, work, and attract potential clients.'
     },
     {
       icon: <HeartHandshake className="w-5 h-5" />,
       title: 'Reputation Management',
-      desc: 'Strategic review acquisition and sentiment monitoring for local trust.'
+      desc: 'Monitor and improve your online reputation with strategic client review acquisition and management.'
     }
   ];
 
   return (
-    <section id="framework" className="py-24 bg-white relative overflow-hidden">
+    <section id="framework" className="py-24 bg-white dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Header — left fades from left, right from right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
           <FadeLeft className="lg:col-span-7 text-left">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-0.5 bg-[#0055DF]"></div>
-              <span className="text-[#0055DF] text-xs sm:text-sm font-semibold uppercase tracking-widest">
-                Our Offerings
+              <div className="w-8 h-0.5 bg-[#0055DF] dark:bg-blue-400"></div>
+              <span className="text-[#0055DF] dark:text-blue-400 text-xs sm:text-sm font-semibold uppercase tracking-widest">
+                Our Services
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] text-[#0A1931] tracking-tight leading-[1.1] uppercase">
-              Our Local <br />
-              <span className="font-extrabold text-[#0A1931]">SEO Framework</span>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] text-[#0A1931] dark:text-white tracking-tight leading-[1.1] uppercase">
+              Our Services <br />
+              <span className="font-extrabold text-[#0055DF] dark:text-blue-400">That Get You Found</span>
             </h2>
           </FadeLeft>
           
-          <FadeRight delay={0.15} className="lg:col-span-5 text-left text-[#64748B] text-sm sm:text-base leading-relaxed lg:pt-6">
+          <FadeRight delay={0.15} className="lg:col-span-5 text-left text-[#64748B] dark:text-slate-400 text-sm sm:text-base leading-relaxed lg:pt-6">
             <p>
-              Our local SEO framework is built to improve map visibility, strengthen city-wise rankings, and turn high-intent local searches into real business enquiries.
+              Comprehensive Local SEO solutions designed to get your business found by local customers in Navi Mumbai.
             </p>
           </FadeRight>
         </div>
@@ -71,16 +71,16 @@ export default function Framework() {
           initial="hidden"
           whileInView="show"
           viewport={VIEWPORT}
-          className="rounded-3xl border border-slate-100 bg-white overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.015)]"
+          className="rounded-3xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.015)]"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y divide-slate-100 md:divide-y-0 lg:divide-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y divide-slate-100 dark:divide-slate-800 md:divide-y-0 lg:divide-y-0">
             {items.map((item, idx) => {
               const borderClasses = `
-                p-8 text-left transition-colors hover:bg-[#F4F7FC]/40 flex flex-col items-start
-                ${idx < 3 ? 'lg:border-b lg:border-slate-100' : ''}
-                ${idx % 3 !== 2 ? 'lg:border-r lg:border-slate-100' : ''}
-                ${idx % 2 !== 1 ? 'md:border-r md:border-slate-100' : ''}
-                ${idx < 4 ? 'md:border-b md:border-slate-100' : ''}
+                p-8 text-left transition-colors hover:bg-[#F4F7FC]/40 dark:hover:bg-slate-800/40 flex flex-col items-start
+                ${idx < 3 ? 'lg:border-b lg:border-slate-100 dark:lg:border-slate-800' : ''}
+                ${idx % 3 !== 2 ? 'lg:border-r lg:border-slate-100 dark:lg:border-slate-800' : ''}
+                ${idx % 2 !== 1 ? 'md:border-r md:border-slate-100 dark:md:border-slate-800' : ''}
+                ${idx < 4 ? 'md:border-b md:border-slate-100 dark:md:border-slate-800' : ''}
               `;
               
               return (
@@ -94,16 +94,16 @@ export default function Framework() {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="w-10 h-10 rounded-xl bg-[#0055DF]/10 text-[#0055DF] flex items-center justify-center mb-6 shadow-sm"
+                    className="w-10 h-10 rounded-xl bg-[#0055DF]/10 dark:bg-blue-500/20 text-[#0055DF] dark:text-blue-400 flex items-center justify-center mb-6 shadow-sm"
                   >
                     {item.icon}
                   </motion.div>
                   
-                  <h3 className="font-heading font-extrabold text-base text-[#0A1931] mb-3 leading-snug">
+                  <h3 className="font-heading font-extrabold text-base text-[#0A1931] dark:text-white mb-3 leading-snug">
                     {item.title}
                   </h3>
                   
-                  <p className="text-slate-500 text-[13.5px] leading-relaxed">
+                  <p className="text-slate-500 dark:text-slate-400 text-[13.5px] leading-relaxed">
                     {item.desc}
                   </p>
                 </motion.div>

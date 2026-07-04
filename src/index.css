@@ -6,6 +6,13 @@
   body {
     background-color: #ffffff;
     color: #0F172A;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  .dark body {
+    background-color: #030712;
+    color: #f8fafc;
   }
 }
 
@@ -13,6 +20,9 @@
 .grid-overlay {
   background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
+}
+.dark .grid-overlay {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
 }
 
 .dark-grid-overlay {
@@ -48,12 +58,21 @@
 ::-webkit-scrollbar-track {
   background: #F8FAFC;
 }
+.dark ::-webkit-scrollbar-track {
+  background: #030712;
+}
 ::-webkit-scrollbar-thumb {
   background: #CBD5E1;
   border-radius: 4px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }
 
 /* Glassmorphism and modern gradient presets */
@@ -62,6 +81,11 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-panel-dark {

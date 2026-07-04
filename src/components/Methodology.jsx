@@ -75,27 +75,27 @@ export default function Methodology() {
   const activeTabDetails = tabs[activeTab];
 
   return (
-    <section id="methodology" className="py-24 bg-white relative overflow-hidden border-y border-slate-100">
+    <section id="methodology" className="py-24 bg-white dark:bg-slate-950 relative overflow-hidden border-y border-slate-100 dark:border-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Top Header layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-start">
           <div className="lg:col-span-6 text-left">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-0.5 bg-[#0055DF]"></div>
-              <span className="text-[#0055DF] text-xs sm:text-sm font-semibold uppercase tracking-widest">
+              <div className="w-8 h-0.5 bg-[#0055DF] dark:bg-blue-400"></div>
+              <span className="text-[#0055DF] dark:text-blue-400 text-xs sm:text-sm font-semibold uppercase tracking-widest">
                 From city-level to hyper-local
               </span>
             </div>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] text-slate-400 tracking-tight leading-[1.1] uppercase">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-[46px] text-slate-400 dark:text-slate-500 tracking-tight leading-[1.1] uppercase">
               How we transform <br />
-              your <span className="font-extrabold text-[#0C0E12]">Visibility</span>
+              your <span className="font-extrabold text-[#0C0E12] dark:text-white">Visibility</span>
             </h2>
           </div>
           
-          <div className="lg:col-span-6 text-left text-slate-500 text-sm sm:text-base leading-relaxed">
+          <div className="lg:col-span-6 text-left text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
             <p className="mb-4">
-              Most businesses only target <strong className="text-slate-900 font-semibold">broad city-level keywords</strong>. At <strong className="text-slate-900 font-semibold">GBIM</strong>, we go deeper by optimizing for <strong className="text-slate-900 font-semibold">hyper-local searches</strong> that include <strong className="text-slate-900 font-semibold">neighborhoods, landmarks, and high-intent micro-locations</strong>.
+              Most businesses only target <strong className="text-slate-900 dark:text-white font-semibold">broad city-level keywords</strong>. At <strong className="text-slate-900 dark:text-white font-semibold">GBIM</strong>, we go deeper by optimizing for <strong className="text-slate-900 dark:text-white font-semibold">hyper-local searches</strong> that include <strong className="text-slate-900 dark:text-white font-semibold">neighborhoods, landmarks, and high-intent micro-locations</strong>.
             </p>
             <p>
               This allows your business to appear for highly specific queries where competition is lower and conversion rates are significantly higher.
@@ -115,13 +115,10 @@ export default function Methodology() {
                 <button
                   key={tabName}
                   onClick={() => setActiveTab(tabName)}
-                  style={{
-                    boxShadow: isSelected ? `0 15px 30px -5px ${tabs[tabName].lightColor}` : ''
-                  }}
                   className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between ${
                     isSelected 
-                      ? 'bg-white ring-1' 
-                      : 'bg-white/50 border-slate-100 hover:bg-white hover:border-slate-200'
+                      ? 'bg-white dark:bg-slate-900 ring-1' 
+                      : 'bg-white/50 dark:bg-slate-900/40 border-slate-100 dark:border-slate-800/80 hover:bg-white dark:hover:bg-slate-800 hover:border-slate-200 dark:hover:border-slate-700'
                   }`}
                   style={{
                     borderColor: isSelected ? themeColor : '',
@@ -131,7 +128,7 @@ export default function Methodology() {
                   <div className="flex items-center gap-4">
                     <div 
                       className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${
-                        isSelected ? 'text-white' : 'bg-slate-100 text-slate-500'
+                        isSelected ? 'text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
                       }`}
                       style={{
                         backgroundColor: isSelected ? themeColor : ''
@@ -140,13 +137,13 @@ export default function Methodology() {
                       {tabs[tabName].icon}
                     </div>
                     <div>
-                      <h3 className="font-heading font-extrabold text-lg text-[#0C0E12]">{tabName}</h3>
-                      <span className="text-xs text-slate-400 font-medium">{tabs[tabName].city} → {tabs[tabName].landmark}</span>
+                      <h3 className="font-heading font-extrabold text-lg text-[#0C0E12] dark:text-white">{tabName}</h3>
+                      <span className="text-xs text-slate-400 dark:text-slate-500 font-medium">{tabs[tabName].city} → {tabs[tabName].landmark}</span>
                     </div>
                   </div>
                   <div 
                     className={`w-6 h-6 rounded-full border flex items-center justify-center text-slate-400 transition-all ${
-                      isSelected ? 'rotate-90 text-white' : 'border-slate-200'
+                      isSelected ? 'rotate-90 text-white' : 'border-slate-200 dark:border-slate-800'
                     }`}
                     style={{
                       backgroundColor: isSelected ? themeColor : 'transparent',
@@ -169,11 +166,11 @@ export default function Methodology() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.96, y: -15 }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-[580px] aspect-[4/3] rounded-3xl border border-slate-100 bg-slate-50/50 p-6 sm:p-8 flex flex-col justify-between relative shadow-[0_20px_50px_rgba(0,0,0,0.03)] overflow-hidden"
+                className="w-full max-w-[580px] aspect-[4/3] rounded-3xl border border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 p-6 sm:p-8 flex flex-col justify-between relative shadow-[0_20px_50px_rgba(0,0,0,0.03)] overflow-hidden"
               >
                 {/* Simulated Radar Map Grid */}
                 <div className="absolute inset-0 opacity-20 pointer-events-none -z-10">
-                  <svg className="w-full h-full text-slate-350" viewBox="0 0 200 150">
+                  <svg className="w-full h-full text-slate-350 dark:text-slate-700" viewBox="0 0 200 150">
                     <circle cx="100" cy="75" r="30" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3,3" />
                     <circle cx="100" cy="75" r="60" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3,3" />
                     <circle cx="100" cy="75" r="90" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3,3" />
@@ -224,9 +221,9 @@ export default function Methodology() {
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.25, duration: 0.4 }}
-                  className="absolute bottom-6 left-6 bg-white border border-slate-100 shadow-xl rounded-2xl p-4 text-left z-20 hidden sm:block"
+                  className="absolute bottom-6 left-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-4 text-left z-20 hidden sm:block"
                 >
-                  <span className="block text-[9px] text-slate-400 uppercase font-extrabold tracking-wider">Conversion</span>
+                  <span className="block text-[9px] text-slate-400 dark:text-slate-500 uppercase font-extrabold tracking-wider">Conversion</span>
                   <span className="font-heading font-extrabold text-red-500 text-base">{activeTabDetails.conversion}</span>
                 </motion.div>
 
@@ -235,26 +232,26 @@ export default function Methodology() {
                   initial={{ x: 20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.4 }}
-                  className="absolute bottom-6 right-6 bg-white border border-slate-100 shadow-xl rounded-2xl p-4 text-left z-20 hidden sm:block"
+                  className="absolute bottom-6 right-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl rounded-2xl p-4 text-left z-20 hidden sm:block"
                 >
-                  <span className="block text-[9px] text-slate-400 uppercase font-extrabold tracking-wider">Competition</span>
+                  <span className="block text-[9px] text-slate-400 dark:text-slate-500 uppercase font-extrabold tracking-wider">Competition</span>
                   <span className="font-heading font-extrabold text-emerald-600 text-base">{activeTabDetails.competition}</span>
                 </motion.div>
 
                 {/* Query Switcher Card */}
-                <div className="w-full max-w-[360px] mx-auto bg-white/90 backdrop-blur-md border border-slate-100 shadow-2xl rounded-2xl p-5 flex flex-col gap-3.5 relative z-20 mt-2 sm:mt-4">
+                <div className="w-full max-w-[360px] mx-auto bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-100 dark:border-slate-800 shadow-2xl rounded-2xl p-5 flex flex-col gap-3.5 relative z-20 mt-2 sm:mt-4">
                   {/* City-level crossed query */}
                   <motion.div 
                     initial={{ y: 5, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.15 }}
-                    className="flex items-center justify-between text-slate-400 text-xs bg-slate-50/80 px-3.5 py-2.5 rounded-xl border border-slate-100"
+                    className="flex items-center justify-between text-slate-400 dark:text-slate-500 text-xs bg-slate-50/80 dark:bg-slate-950/85 px-3.5 py-2.5 rounded-xl border border-slate-100 dark:border-slate-800"
                   >
                     <div className="flex items-center gap-2">
                       <Search className="w-4 h-4 shrink-0 text-slate-350" />
                       <span className="line-through font-medium">{activeTabDetails.crossedQuery}</span>
                     </div>
-                    <div className="w-5 h-5 rounded-full bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                    <div className="w-5 h-5 rounded-full bg-red-50 dark:bg-red-950/50 text-red-500 flex items-center justify-center shrink-0">
                       <X className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
                   </motion.div>
@@ -264,10 +261,10 @@ export default function Methodology() {
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="flex items-center justify-between text-emerald-600 text-xs bg-emerald-50/50 px-3.5 py-3 rounded-xl border border-emerald-100"
+                    className="flex items-center justify-between text-emerald-600 dark:text-emerald-400 text-xs bg-emerald-50/50 dark:bg-emerald-950/20 px-3.5 py-3 rounded-xl border border-emerald-100 dark:border-emerald-900/40"
                   >
                     <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                      <div className="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                       </div>
                       <span className="font-extrabold text-[13px]">{activeTabDetails.optimizedQuery}</span>
@@ -279,16 +276,16 @@ export default function Methodology() {
                 </div>
 
                 {/* Mobile metrics layout (when cards hidden) */}
-                <div className="flex justify-between items-center w-full mt-4 sm:hidden bg-white/70 backdrop-blur-md p-3.5 rounded-2xl border border-slate-100">
+                <div className="flex justify-between items-center w-full mt-4 sm:hidden bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-3.5 rounded-2xl border border-slate-100 dark:border-slate-800">
                   <div className="text-left">
-                    <span className="block text-[8px] text-slate-400 uppercase font-bold">Conversion</span>
+                    <span className="block text-[8px] text-slate-400 dark:text-slate-500 uppercase font-bold">Conversion</span>
                     <span className="font-bold text-red-500 text-xs">{activeTabDetails.conversion}</span>
                   </div>
                   <div className="px-3.5 py-1 rounded-full bg-blue-600 text-white font-extrabold text-[9px] uppercase tracking-wider">
                     High Intent
                   </div>
                   <div className="text-left">
-                    <span className="block text-[8px] text-slate-400 uppercase font-bold">Competition</span>
+                    <span className="block text-[8px] text-slate-400 dark:text-slate-500 uppercase font-bold">Competition</span>
                     <span className="font-bold text-emerald-600 text-xs">{activeTabDetails.competition}</span>
                   </div>
                 </div>
