@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { 
   Mail, Phone, MapPin, Clock, 
   Facebook, Youtube, Instagram, Linkedin,
-  ChevronDown, Check, Download
+  ChevronDown, Check
 } from 'lucide-react';
 // xlsx loaded dynamically on form submit — does not block page render
 
@@ -55,46 +55,18 @@ function CustomSelect({ label, name, options, value, onChange, error }) {
 }
 
 /* ─────────────────── Config from .env ─────────────────── */
-const GOOGLE_SHEET_URL  = import.meta.env.VITE_GOOGLE_SHEET_URL  || '';
-const STORAGE_KEY       = import.meta.env.VITE_LEADS_STORAGE_KEY  || 'getfound_leads';
-const EXCEL_FILENAME    = import.meta.env.VITE_EXCEL_FILENAME      || 'GetFound_Leads.xlsx';
 
 /* ─────────────────── Submit lead (Sheets + Excel) ─────────────────── */
 async function submitLead(newLead) {
-  const payload = { ...newLead, submittedAt: new Date().toLocaleString() };
+  const response = await fetch('/api/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newLead),
+  });
 
-  // 1️⃣  Google Sheets (if URL is configured)
-  const isGoogleSheetReady =
-    GOOGLE_SHEET_URL &&
-    !GOOGLE_SHEET_URL.includes('PASTE_YOUR') &&
-    GOOGLE_SHEET_URL.startsWith('https://script.google.com');
-
-  if (isGoogleSheetReady) {
-    try {
-      await fetch(GOOGLE_SHEET_URL, {
-        method: 'POST',
-        mode: 'no-cors', // Google Apps Script requires no-cors
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-    } catch (err) {
-      console.warn('[GetFound] Google Sheets POST failed:', err);
-    }
-  }
-
-  // 2️⃣  Always save locally + download Excel as backup
-  const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-  const updated  = [...existing, payload];
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-
-  try {
-    const XLSX = await import('xlsx');
-    const ws = XLSX.utils.json_to_sheet(updated);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Leads');
-    XLSX.writeFile(wb, EXCEL_FILENAME);
-  } catch (xlsxErr) {
-    console.warn('[GetFound] Excel download failed:', xlsxErr);
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.error || 'Failed to submit lead');
   }
 }
 
@@ -253,10 +225,9 @@ export default function ContactForm() {
 
               {status === 'success' && (
                 <div className="p-3 rounded-xl bg-green-950/30 border border-green-800/60 text-emerald-400 text-sm font-semibold flex items-center gap-2">
-                  <Download className="w-4 h-4 shrink-0" />
+                  <Check className="w-4 h-4 shrink-0" />
                   <span>
-                    Lead saved! Excel downloaded to your device.
-                    {GOOGLE_SHEET_URL && !GOOGLE_SHEET_URL.includes('PASTE_YOUR') && ' Also sent to Google Sheets ✓'}
+                    Lead saved! Thank you, we will contact you shortly.
                   </span>
                 </div>
               )}
