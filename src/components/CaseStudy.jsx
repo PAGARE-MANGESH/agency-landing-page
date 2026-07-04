@@ -5,6 +5,7 @@ import {
   ChevronDown, ChevronUp, Search, Eye, MousePointerClick
 } from 'lucide-react';
 import caseStudyBanner from '../../assets/case-study-banner12.webp';
+import { FadeUp, FadeLeft, FadeRight, VIEWPORT } from '../utils/animations.jsx';
 
 export default function CaseStudy() {
   const [expandedIndex, setExpandedIndex] = useState(0); // Default first one open
@@ -74,13 +75,19 @@ export default function CaseStudy() {
     <section id="case" className="py-20 bg-white">
       {/* 1. Case Study Banner Image */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-8 mb-16">
-        <div className="rounded-3xl overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl transition-shadow duration-300">
-          <img 
-            src={caseStudyBanner} 
-            alt="Metropolis Case Study Banner" 
-            className="w-full h-auto object-cover"
-          />
-        </div>
+        <FadeUp>
+          <motion.div 
+            whileHover={{ scale: 1.015 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+            className="rounded-3xl overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+          >
+            <img 
+              src={caseStudyBanner} 
+              alt="Metropolis Case Study Banner" 
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </FadeUp>
       </div>
 
       {/* 2. Interactive Details Layout */}
@@ -88,7 +95,7 @@ export default function CaseStudy() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Accordions */}
-          <div className="lg:col-span-5 space-y-3">
+          <FadeLeft className="lg:col-span-5 space-y-3">
             {accordionItems.map((item) => {
               const isOpen = expandedIndex === item.id;
               return (
@@ -134,10 +141,10 @@ export default function CaseStudy() {
                 </div>
               );
             })}
-          </div>
+          </FadeLeft>
 
           {/* Center Column: Highlights Block */}
-          <div className="lg:col-span-5 bg-[#F4FBF7] rounded-3xl p-6 sm:p-8 border border-[#E6F7F0] space-y-6 flex flex-col justify-between self-stretch">
+          <FadeUp delay={0.1} className="lg:col-span-5 bg-[#F4FBF7] rounded-3xl p-6 sm:p-8 border border-[#E6F7F0] space-y-6 flex flex-col justify-between self-stretch">
             <div className="space-y-6">
               {/* Point 1 */}
               <div className="flex items-start gap-3">
@@ -185,12 +192,16 @@ export default function CaseStudy() {
                 </li>
               </ul>
             </div>
-          </div>
+          </FadeUp>
 
           {/* Right Column: Metrics Cards */}
-          <div className="lg:col-span-2 flex flex-row lg:flex-col gap-4 w-full">
+          <FadeRight delay={0.2} className="lg:col-span-2 flex flex-row lg:flex-col gap-4 w-full">
             {/* Visibility Card */}
-            <div className="flex-1 bg-white border border-slate-100 rounded-2xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[140px] hover:shadow-md transition-shadow">
+            <motion.div 
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="flex-1 bg-white border border-slate-100 rounded-2xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[140px] hover:shadow-md transition-shadow cursor-pointer"
+            >
               <div className="absolute top-4 right-4">
                 <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-500 flex items-center justify-center">
                   <Eye className="w-4.5 h-4.5" />
@@ -205,10 +216,14 @@ export default function CaseStudy() {
               <p className="text-slate-500 text-[11px] leading-snug mt-2">
                 for high-intent local terms
               </p>
-            </div>
+            </motion.div>
 
             {/* Local Clicks Card */}
-            <div className="flex-1 bg-white border border-slate-100 rounded-2xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[140px] hover:shadow-md transition-shadow">
+            <motion.div 
+              whileHover={{ y: -5, scale: 1.02 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="flex-1 bg-white border border-slate-100 rounded-2xl p-5 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[140px] hover:shadow-md transition-shadow cursor-pointer"
+            >
               <div className="absolute top-4 right-4">
                 <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-500 flex items-center justify-center">
                   <MousePointerClick className="w-4.5 h-4.5" />
@@ -223,8 +238,8 @@ export default function CaseStudy() {
               <p className="text-slate-500 text-[11px] leading-snug mt-2">
                 across priority city pages
               </p>
-            </div>
-          </div>
+            </motion.div>
+          </FadeRight>
 
         </div>
       </div>

@@ -14,10 +14,10 @@ export default function Educational() {
         
         {/* Left Column: Human Frame Graphic */}
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="lg:col-span-6 flex justify-center items-center"
         >
           <img 
@@ -29,10 +29,10 @@ export default function Educational() {
 
         {/* Right Column: Headings, Paragraphs, and Stats Cards */}
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="lg:col-span-6 flex flex-col items-start text-left"
         >
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl text-[#252525] tracking-tight mb-6">
@@ -47,11 +47,15 @@ export default function Educational() {
             It focuses on improving your visibility in Google Maps and the Local Pack, helping your business rank for searches that directly lead to calls, visits, and conversions.
           </p>
 
-          {/* Two side-by-side metric cards */}
+                   {/* Two side-by-side metric cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full mb-8">
             
             {/* Card 1: Google Maps Visibility */}
-            <div className="p-5 rounded-2xl border border-slate-100 bg-[#F8FAFC]/50 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.025, boxShadow: '0 20px 25px -5px rgba(16, 185, 129, 0.1), 0 8px 10px -6px rgba(16, 185, 129, 0.05)' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="p-5 rounded-2xl border border-emerald-500/10 hover:border-emerald-500/30 bg-gradient-to-b from-white to-[#F8FAFC] shadow-[0_4px_25px_rgba(0,0,0,0.015)] cursor-pointer"
+            >
               <div className="flex items-center gap-2 mb-4 text-[#00A355] font-bold text-xs uppercase tracking-wider">
                 <div className="p-1 rounded-full bg-emerald-50 text-emerald-600">
                   <MapPin className="w-3.5 h-3.5 fill-current" />
@@ -76,10 +80,14 @@ export default function Educational() {
               <svg className="w-full h-8 text-emerald-500" viewBox="0 0 100 20" preserveAspectRatio="none">
                 <path d="M0,18 Q20,12 40,15 T80,5 T100,2" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
-            </div>
+            </motion.div>
 
             {/* Card 2: Google Maps Business Listing */}
-            <div className="p-5 rounded-2xl border border-slate-100 bg-[#F8FAFC]/50 shadow-[0_4px_20px_rgba(0,0,0,0.02)] text-left flex flex-col justify-between">
+            <motion.div 
+              whileHover={{ y: -6, scale: 1.025, boxShadow: '0 20px 25px -5px rgba(239, 68, 68, 0.1), 0 8px 10px -6px rgba(239, 68, 68, 0.05)' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="p-5 rounded-2xl border border-red-500/10 hover:border-red-500/30 bg-gradient-to-b from-white to-[#F8FAFC] shadow-[0_4px_25px_rgba(0,0,0,0.015)] text-left flex flex-col justify-between cursor-pointer"
+            >
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <div className="w-7 h-7 rounded-full bg-[#B62E28] text-white flex items-center justify-center font-bold text-xs">
@@ -104,7 +112,7 @@ export default function Educational() {
                 <span>Top 3 Local Pack</span>
                 <span className="text-[#00A355]">✓ Verified</span>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 

@@ -27,8 +27,18 @@
   100% { transform: scale(0.95); opacity: 1; }
 }
 
+@keyframes subtle-vibrate {
+  0%, 85%, 100% { transform: rotate(0deg) scale(1); }
+  87%, 91%, 95%, 99% { transform: rotate(-1.5deg) scale(1.02); }
+  89%, 93%, 97% { transform: rotate(1.5deg) scale(1.02); }
+}
+
 .animate-pulse-cta {
   animation: pulse-ring 2s infinite ease-in-out;
+}
+
+.animate-vibrate-periodic {
+  animation: subtle-vibrate 5s infinite ease-in-out;
 }
 
 /* Custom Scrollbars */
@@ -45,3 +55,31 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
 }
+
+/* Glassmorphism and modern gradient presets */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.glass-panel-dark {
+  background: rgba(12, 14, 18, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-sphere {
+  filter: blur(90px);
+  mix-blend-mode: multiply;
+  animation: float-glow 10s infinite alternate ease-in-out;
+}
+
+@keyframes float-glow {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-20px) scale(1.08); }
+  100% { transform: translateY(10px) scale(0.95); }
+}
+

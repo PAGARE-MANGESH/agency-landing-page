@@ -36,11 +36,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <h5 className="font-heading font-bold text-white text-base mb-4 uppercase tracking-wider">Office Hubs</h5>
-          <p className="text-sm leading-relaxed">
-            Corporate HQ: BKC Hub, Bandra East, Mumbai.<br/>
-            North India Hub: Green Park, New Delhi.<br/>
-            West India Hub: Magarpatta Phase 2, Pune.
+          <h5 className="font-heading font-bold text-white text-base mb-4 uppercase tracking-wider">Contact Info</h5>
+          <p className="text-sm leading-relaxed text-slate-400">
+            <strong>Address:</strong> 246, Second floor, Raheja Tesla 2 MIDC Industrial Area, Sanpada, Navi Mumbai, Maharashtra 400703<br/>
+            <strong>Phone:</strong> +91 7039821730<br/>
+            <strong>Email:</strong> info.getfound@gmail.com
           </p>
         </div>
 

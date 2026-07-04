@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Stethoscope, Utensils, Home, Wrench, Search, Check, X } from 'lucide-react';
-import healthImg from '../../assets/health.webp';
+import { Stethoscope, Utensils, Home, Wrench, Search, Check, X, MapPin } from 'lucide-react';
 
 export default function Methodology() {
   const [activeTab, setActiveTab] = useState('Healthcare');
@@ -11,21 +10,33 @@ export default function Methodology() {
       icon: <Stethoscope className="w-5 h-5" />,
       city: 'Delhi',
       landmark: 'Green Park Metro',
-      image: healthImg,
+      image: null,
       crossedQuery: 'Diagnostic Lab in Delhi',
       optimizedQuery: 'Blood test near Green Park Metro',
       competition: 'Low (-58%)',
-      conversion: 'High (+132%)'
+      conversion: 'High (+132%)',
+      color: '#B62E28',
+      bgColor: 'bg-red-500',
+      accentBg: 'bg-[#FDECEC]',
+      textAccent: 'text-[#B62E28]',
+      borderColor: 'border-red-200',
+      lightColor: 'rgba(182, 46, 40, 0.1)'
     },
     Food: {
       icon: <Utensils className="w-5 h-5" />,
       city: 'Mumbai',
       landmark: 'BKC Hub',
-      image: null, // We will use our custom HTML template as fallback
+      image: null,
       crossedQuery: 'Restaurants in Mumbai',
       optimizedQuery: 'Corporate catering BKC Hub',
       competition: 'Low (-45%)',
-      conversion: 'High (+180%)'
+      conversion: 'High (+180%)',
+      color: '#F97316',
+      bgColor: 'bg-orange-500',
+      accentBg: 'bg-orange-50',
+      textAccent: 'text-orange-600',
+      borderColor: 'border-orange-200',
+      lightColor: 'rgba(249, 115, 22, 0.1)'
     },
     'Real Estate': {
       icon: <Home className="w-5 h-5" />,
@@ -35,7 +46,13 @@ export default function Methodology() {
       crossedQuery: 'Flats in Pune',
       optimizedQuery: '3BHK near Magarpatta Phase 2',
       competition: 'Low (-62%)',
-      conversion: 'High (+95%)'
+      conversion: 'High (+95%)',
+      color: '#2563EB',
+      bgColor: 'bg-blue-500',
+      accentBg: 'bg-blue-50',
+      textAccent: 'text-blue-600',
+      borderColor: 'border-blue-200',
+      lightColor: 'rgba(37, 99, 235, 0.1)'
     },
     'Home Services': {
       icon: <Wrench className="w-5 h-5" />,
@@ -45,9 +62,17 @@ export default function Methodology() {
       crossedQuery: 'Plumbers in Bangalore',
       optimizedQuery: 'Emergency plumber HSR Layout',
       competition: 'Low (-50%)',
-      conversion: 'High (+210%)'
+      conversion: 'High (+210%)',
+      color: '#7C3AED',
+      bgColor: 'bg-purple-500',
+      accentBg: 'bg-purple-50',
+      textAccent: 'text-purple-600',
+      borderColor: 'border-purple-200',
+      lightColor: 'rgba(124, 58, 237, 0.1)'
     }
   };
+
+  const activeTabDetails = tabs[activeTab];
 
   return (
     <section id="methodology" className="py-24 bg-white relative overflow-hidden border-y border-slate-100">
@@ -85,20 +110,33 @@ export default function Methodology() {
           <div className="lg:col-span-5 flex flex-col gap-4">
             {Object.keys(tabs).map((tabName) => {
               const isSelected = activeTab === tabName;
+              const themeColor = tabs[tabName].color;
               return (
                 <button
                   key={tabName}
                   onClick={() => setActiveTab(tabName)}
+                  style={{
+                    boxShadow: isSelected ? `0 15px 30px -5px ${tabs[tabName].lightColor}` : ''
+                  }}
                   className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between ${
                     isSelected 
-                      ? 'bg-white border-red-150 shadow-[0_15px_30px_-5px_rgba(182,46,40,0.08)] ring-1 ring-[#B62E28]/10' 
+                      ? 'bg-white ring-1' 
                       : 'bg-white/50 border-slate-100 hover:bg-white hover:border-slate-200'
                   }`}
+                  style={{
+                    borderColor: isSelected ? themeColor : '',
+                    boxShadow: isSelected ? `0 15px 30px -5px ${tabs[tabName].lightColor}` : ''
+                  }}
                 >
                   <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-colors ${
-                      isSelected ? 'bg-[#B62E28] text-white' : 'bg-slate-100 text-slate-500'
-                    }`}>
+                    <div 
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${
+                        isSelected ? 'text-white' : 'bg-slate-100 text-slate-500'
+                      }`}
+                      style={{
+                        backgroundColor: isSelected ? themeColor : ''
+                      }}
+                    >
                       {tabs[tabName].icon}
                     </div>
                     <div>
@@ -106,9 +144,15 @@ export default function Methodology() {
                       <span className="text-xs text-slate-400 font-medium">{tabs[tabName].city} → {tabs[tabName].landmark}</span>
                     </div>
                   </div>
-                  <div className={`w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 transition-transform ${
-                    isSelected ? 'rotate-90 bg-red-50 text-[#B62E28] border-red-100' : ''
-                  }`}>
+                  <div 
+                    className={`w-6 h-6 rounded-full border flex items-center justify-center text-slate-400 transition-all ${
+                      isSelected ? 'rotate-90 text-white' : 'border-slate-200'
+                    }`}
+                    style={{
+                      backgroundColor: isSelected ? themeColor : 'transparent',
+                      borderColor: isSelected ? themeColor : ''
+                    }}
+                  >
                     →
                   </div>
                 </button>
@@ -117,92 +161,146 @@ export default function Methodology() {
           </div>
 
           {/* Right: Graphic mockup representing local map positioning outcomes */}
-          <div className="lg:col-span-7 flex justify-center">
+          <div className="lg:col-span-7 flex justify-center w-full">
             <AnimatePresence mode="wait">
-              {tabs[activeTab].image ? (
-                // If the tab has an image asset (Healthcare), render it directly
-                <motion.div
-                  key="image-view"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  className="w-full max-w-[580px]"
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, scale: 0.96, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.96, y: -15 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full max-w-[580px] aspect-[4/3] rounded-3xl border border-slate-100 bg-slate-50/50 p-6 sm:p-8 flex flex-col justify-between relative shadow-[0_20px_50px_rgba(0,0,0,0.03)] overflow-hidden"
+              >
+                {/* Simulated Radar Map Grid */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none -z-10">
+                  <svg className="w-full h-full text-slate-350" viewBox="0 0 200 150">
+                    <circle cx="100" cy="75" r="30" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3,3" />
+                    <circle cx="100" cy="75" r="60" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3,3" />
+                    <circle cx="100" cy="75" r="90" fill="none" stroke="currentColor" strokeWidth="0.75" strokeDasharray="3,3" />
+                    
+                    {/* Simulated Map Streets */}
+                    <path d="M 20,40 L 180,40 M 10,75 L 190,75 M 30,110 L 170,110" stroke="currentColor" strokeWidth="1" />
+                    <path d="M 60,10 L 60,140 M 100,5 L 100,145 M 140,10 L 140,140" stroke="currentColor" strokeWidth="1" />
+                  </svg>
+                </div>
+
+                {/* Animated Pulsing Location Pin */}
+                <div className="absolute top-[38%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10">
+                  <div className="relative">
+                    {/* Double pulsing rings colored dynamically */}
+                    <motion.div 
+                      animate={{ scale: [1, 2.5], opacity: [0.5, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
+                      className="absolute -inset-3 rounded-full pointer-events-none"
+                      style={{ backgroundColor: activeTabDetails.color }}
+                    />
+                    <motion.div 
+                      animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
+                      transition={{ duration: 2, delay: 0.6, repeat: Infinity, ease: 'easeOut' }}
+                      className="absolute -inset-3 rounded-full pointer-events-none"
+                      style={{ backgroundColor: activeTabDetails.color }}
+                    />
+                    
+                    {/* The Pin */}
+                    <motion.div 
+                      animate={{ y: [0, -6, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg relative z-10"
+                      style={{ backgroundColor: activeTabDetails.color }}
+                    >
+                      <MapPin className="w-6 h-6 fill-white/20" />
+                    </motion.div>
+                  </div>
+                  <span 
+                    className="mt-3 text-white font-extrabold text-[11px] sm:text-xs px-4 py-1.5 rounded-full shadow-lg tracking-wide uppercase"
+                    style={{ backgroundColor: activeTabDetails.color }}
+                  >
+                    {activeTabDetails.landmark}
+                  </span>
+                </div>
+
+                {/* Left Card: Conversion metrics (Floating left) */}
+                <motion.div 
+                  initial={{ x: -20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.25, duration: 0.4 }}
+                  className="absolute bottom-6 left-6 bg-white border border-slate-100 shadow-xl rounded-2xl p-4 text-left z-20 hidden sm:block"
                 >
-                  <img 
-                    src={tabs[activeTab].image} 
-                    alt={`${activeTab} local seo visibility framework`} 
-                    className="w-full h-auto object-contain rounded-3xl"
-                  />
+                  <span className="block text-[9px] text-slate-400 uppercase font-extrabold tracking-wider">Conversion</span>
+                  <span className="font-heading font-extrabold text-red-500 text-base">{activeTabDetails.conversion}</span>
                 </motion.div>
-              ) : (
-                // Fallback custom HTML template for other tabs
-                <motion.div
-                  key="html-view"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  className="w-full max-w-[580px] aspect-[4/3] rounded-3xl border border-slate-100 bg-[#F8FAFC]/40 p-6 sm:p-8 flex flex-col justify-between relative shadow-[0_20px_50px_rgba(0,0,0,0.02)] overflow-hidden"
+
+                {/* Right Card: Competition metrics (Floating right) */}
+                <motion.div 
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
+                  className="absolute bottom-6 right-6 bg-white border border-slate-100 shadow-xl rounded-2xl p-4 text-left z-20 hidden sm:block"
                 >
-                  <div className="absolute inset-0 opacity-15 pointer-events-none -z-10 bg-radial-grid">
-                    <svg className="w-full h-full text-slate-300" viewBox="0 0 200 150">
-                      <circle cx="100" cy="75" r="45" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3,3" />
-                      <path d="M10,75 L190,75 M100,10 L100,140" stroke="currentColor" strokeWidth="0.5" />
-                    </svg>
-                  </div>
-
-                  <div className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10">
-                    <div className="relative">
-                      <div className="absolute -inset-1.5 rounded-full bg-[#B62E28]/20 animate-ping"></div>
-                      <div className="w-9 h-9 rounded-full bg-[#B62E28] flex items-center justify-center text-white shadow-md">
-                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <span className="mt-2 bg-[#B62E28] text-white font-extrabold text-xs px-3.5 py-1 rounded-full shadow-md">
-                      {tabs[activeTab].landmark}
-                    </span>
-                  </div>
-
-                  <div className="w-full max-w-[380px] mx-auto bg-white border border-slate-100 shadow-xl rounded-2xl p-5 flex flex-col gap-3 relative z-25">
-                    <div className="flex items-center justify-between text-slate-400 text-xs bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-100">
-                      <div className="flex items-center gap-2">
-                        <Search className="w-4 h-4 shrink-0 text-slate-350" />
-                        <span className="line-through">{tabs[activeTab].crossedQuery}</span>
-                      </div>
-                      <X className="w-4 h-4 text-red-400 shrink-0" />
-                    </div>
-
-                    <div className="flex items-center justify-between text-[#00A355] text-xs bg-emerald-50/50 px-3.5 py-2.5 rounded-xl border border-emerald-100">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 stroke-[3] shrink-0" />
-                        <span className="font-extrabold">{tabs[activeTab].optimizedQuery}</span>
-                      </div>
-                      <div className="text-[10px] bg-[#00D285] text-white px-2 py-0.5 rounded-full font-bold">
-                        Targeted
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between items-end w-full relative z-20">
-                    <div className="bg-white border border-slate-100 shadow-lg rounded-xl p-3 px-4.5 text-left">
-                      <span className="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Conversion</span>
-                      <span className="font-heading font-extrabold text-[#B62E28] text-sm">{tabs[activeTab].conversion}</span>
-                    </div>
-
-                    <div className="px-5 py-2 rounded-full bg-blue-600 text-white font-extrabold text-xs shadow-md tracking-wider">
-                      High Intent Query
-                    </div>
-
-                    <div className="bg-white border border-slate-100 shadow-lg rounded-xl p-3 px-4.5 text-left">
-                      <span className="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Competition</span>
-                      <span className="font-heading font-extrabold text-emerald-600 text-sm">{tabs[activeTab].competition}</span>
-                    </div>
-                  </div>
+                  <span className="block text-[9px] text-slate-400 uppercase font-extrabold tracking-wider">Competition</span>
+                  <span className="font-heading font-extrabold text-emerald-600 text-base">{activeTabDetails.competition}</span>
                 </motion.div>
-              )}
+
+                {/* Query Switcher Card */}
+                <div className="w-full max-w-[360px] mx-auto bg-white/90 backdrop-blur-md border border-slate-100 shadow-2xl rounded-2xl p-5 flex flex-col gap-3.5 relative z-20 mt-2 sm:mt-4">
+                  {/* City-level crossed query */}
+                  <motion.div 
+                    initial={{ y: 5, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.15 }}
+                    className="flex items-center justify-between text-slate-400 text-xs bg-slate-50/80 px-3.5 py-2.5 rounded-xl border border-slate-100"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Search className="w-4 h-4 shrink-0 text-slate-350" />
+                      <span className="line-through font-medium">{activeTabDetails.crossedQuery}</span>
+                    </div>
+                    <div className="w-5 h-5 rounded-full bg-red-50 text-red-500 flex items-center justify-center shrink-0">
+                      <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                    </div>
+                  </motion.div>
+
+                  {/* Hyperlocal optimized query */}
+                  <motion.div 
+                    initial={{ y: 10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                    className="flex items-center justify-between text-emerald-600 text-xs bg-emerald-50/50 px-3.5 py-3 rounded-xl border border-emerald-100"
+                  >
+                    <div className="flex items-center gap-2">
+                      <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
+                      </div>
+                      <span className="font-extrabold text-[13px]">{activeTabDetails.optimizedQuery}</span>
+                    </div>
+                    <div className="text-[9px] bg-emerald-500 text-white px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
+                      Ranked #1
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Mobile metrics layout (when cards hidden) */}
+                <div className="flex justify-between items-center w-full mt-4 sm:hidden bg-white/70 backdrop-blur-md p-3.5 rounded-2xl border border-slate-100">
+                  <div className="text-left">
+                    <span className="block text-[8px] text-slate-400 uppercase font-bold">Conversion</span>
+                    <span className="font-bold text-red-500 text-xs">{activeTabDetails.conversion}</span>
+                  </div>
+                  <div className="px-3.5 py-1 rounded-full bg-blue-600 text-white font-extrabold text-[9px] uppercase tracking-wider">
+                    High Intent
+                  </div>
+                  <div className="text-left">
+                    <span className="block text-[8px] text-slate-400 uppercase font-bold">Competition</span>
+                    <span className="font-bold text-emerald-600 text-xs">{activeTabDetails.competition}</span>
+                  </div>
+                </div>
+
+                {/* Bottom Center Indicator Badge */}
+                <div className="hidden sm:flex justify-center w-full mt-auto mb-1">
+                  <span className="px-4 py-1.5 rounded-full bg-blue-600/90 backdrop-blur-sm text-white font-extrabold text-[10px] shadow-md tracking-wider uppercase">
+                    High Intent Query Optimized
+                  </span>
+                </div>
+
+              </motion.div>
             </AnimatePresence>
           </div>
 

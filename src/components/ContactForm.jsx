@@ -152,10 +152,10 @@ export default function ContactForm() {
           {/* 2×2 contact cards */}
           <div className="grid grid-cols-2 gap-3 w-full mb-8">
             {[
-              { icon: <MapPin className="w-4 h-4 text-white" />, label: 'Office',         value: '309, Rupa Solitaire' },
-              { icon: <Phone  className="w-4 h-4 text-white" />, label: 'Phone',          value: 'Schedule A Call' },
+              { icon: <MapPin className="w-4 h-4 text-white" />, label: 'Office',         value: 'Sanpada, Navi Mumbai' },
+              { icon: <Phone  className="w-4 h-4 text-white" />, label: 'Phone',          value: '+91 7039821730' },
               { icon: <Clock  className="w-4 h-4 text-white" />, label: 'Working Hours',  value: 'Mon – Fri, 9:30 am to 6:30 pm' },
-              { icon: <Mail   className="w-4 h-4 text-white" />, label: 'Email',          value: 'sales@gbim.com' },
+              { icon: <Mail   className="w-4 h-4 text-white" />, label: 'Email',          value: 'info.getfound@gmail.com' },
             ].map(c => (
               <div key={c.label} className="flex items-center gap-3 bg-[#111317]/60 border border-white/5 rounded-2xl p-4">
                 <div className="w-9 h-9 rounded-xl bg-black border border-white/10 flex items-center justify-center shrink-0">{c.icon}</div>

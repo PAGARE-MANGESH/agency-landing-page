@@ -19,7 +19,10 @@ export default function StatHook() {
           <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-[#0C0E12] leading-[1.25] tracking-tight mb-8">
             <span className="text-[#B62E28]">76% Of</span>{' '}
             {/* Google Search badge */}
-            <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md border border-slate-100 mx-2 align-middle">
+            <motion.span 
+              whileHover={{ scale: 1.15, rotate: 8 }}
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md border border-slate-100 mx-2 align-middle cursor-pointer"
+            >
               <svg className="w-6 h-6" viewBox="0 0 24 24">
                 <path
                   fill="#4285F4"
@@ -38,7 +41,7 @@ export default function StatHook() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
                 />
               </svg>
-            </span>{' '}
+            </motion.span>{' '}
             <span className="text-[#B62E28]">Local Searches</span>{' '}
             Result In A Visit Or Action Within 24 Hours
           </h2>
@@ -65,12 +68,19 @@ export default function StatHook() {
         </div>
 
         {/* Right Side: Mobile Mockup Graphic */}
-        <div className="lg:col-span-6 flex justify-center items-center">
-          <img 
-            src={mobileFrame} 
-            alt="Local maps search mobile frame mockup" 
-            className="w-full max-w-[500px] h-auto object-contain"
-          />
+        <div className="lg:col-span-6 flex justify-center items-center relative">
+          <div className="absolute w-72 h-72 bg-[#B62E28]/10 rounded-full glow-sphere pointer-events-none" />
+          <motion.div
+            whileHover={{ scale: 1.025, y: -5 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            className="relative z-10 filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)]"
+          >
+            <img 
+              src={mobileFrame} 
+              alt="Local maps search mobile frame mockup" 
+              className="w-full max-w-[500px] h-auto object-contain"
+            />
+          </motion.div>
         </div>
 
       </div>
