@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Globe, Check } from 'lucide-react';
 import { FadeLeft, FadeRight, FadeUp } from '../utils/animations.jsx';
 
 export default function ContactForm() {
@@ -95,19 +95,41 @@ export default function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
     }
     
     setStatus('submitting');
-    // Simulate submission
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message || 'General enquiry',
+          service: 'General Enquiry',
+          budget: 'N/A'
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
+
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
       setErrors({});
-    }, 1000);
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -236,9 +258,33 @@ export default function ContactForm() {
                     type="submit"
                     className="w-full py-4 rounded-xl bg-[#0055DF] hover:bg-blue-600 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider transition-colors shadow-md mt-2"
                   >
-                    {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Enquiry Sent!' : 'Send Enquiry'}
+                    {status === 'submitting' ? 'Sending...' : status === 'success' ? 'Enquiry Sent!' : status === 'error' ? 'Submission Failed!' : 'Send Enquiry'}
                   </button>
                 </form>
+
+                {/* Success Popup Modal */}
+                {status === 'success' && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl transform scale-100 transition-all duration-300">
+                      <div className="w-16 h-16 bg-green-100 dark:bg-green-950/50 rounded-full flex items-center justify-center mx-auto mb-5 border border-green-200 dark:border-green-800/30">
+                        <Check className="w-8 h-8 text-green-600 dark:text-green-400" />
+                      </div>
+                      <h3 className="font-heading font-extrabold text-2xl text-slate-900 dark:text-white mb-2">
+                        Message Sent!
+                      </h3>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mb-6 leading-relaxed">
+                        Thank you for reaching out. We have received your message and will get back to you shortly.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setStatus(null)}
+                        className="w-full py-3 rounded-xl bg-[#0055DF] hover:bg-blue-600 text-white font-bold transition-all shadow-md"
+                      >
+                        Close Window
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </FadeLeft>
           </div>

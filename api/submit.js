@@ -35,7 +35,7 @@ export default async function handler(req, res) {
   const { name, email, phone, website, service, budget, message } = req.body || {};
 
   // Validation
-  if (!name?.trim() || !email?.trim() || !phone?.trim() || !service?.trim() || !budget?.trim() || !message?.trim()) {
+  if (!name?.trim() || !email?.trim() || !phone?.trim() || !message?.trim()) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -49,8 +49,8 @@ export default async function handler(req, res) {
     email,
     phone,
     website: website || '',
-    service,
-    budget,
+    service: service?.trim() || 'General Enquiry',
+    budget: budget?.trim() || 'N/A',
     message,
     submittedAt: new Date().toLocaleString()
   };

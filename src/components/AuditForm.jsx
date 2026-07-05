@@ -43,28 +43,36 @@ export default function AuditForm() {
     setFormStatus('submitting');
 
     try {
-      // simulated POST request to Apps Script Web App
-      await fetch('https://script.google.com/macros/s/example-web-app/exec', {
+      const response = await fetch('/api/submit', {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          website: formData.website,
+          service: formData.service,
+          budget: formData.budget,
+          message: formData.notes || 'Audit request'
+        })
       });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
       
-      setTimeout(() => {
-        setFormStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          website: '',
-          service: 'Google Business Profile Optimization',
-          budget: '$1,000 - $3,000 /mo',
-          notes: ''
-        });
-      }, 1500);
+      setFormStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        website: '',
+        service: 'Google Business Profile Optimization',
+        budget: '$1,000 - $3,000 /mo',
+        notes: ''
+      });
 
     } catch (error) {
       console.error(error);
@@ -209,14 +217,31 @@ export default function AuditForm() {
                 </div>
 
                 {formStatus === 'success' && (
-                  <div className="p-4 rounded-xl bg-green-50 border border-green-200 text-brand-accentGreen text-sm font-semibold">
-                    ✓ Success! Your audit request has been sent. We will get back to you shortly.
+                  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white border border-slate-200 rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl transform scale-100 transition-all duration-300">
+                      <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5 border border-green-200">
+                        <Check className="w-8 h-8 text-green-600" />
+                      </div>
+                      <h3 className="font-heading font-extrabold text-2xl text-[#0A1931] mb-2">
+                        Request Received!
+                      </h3>
+                      <p className="text-sm text-slate-500 mb-6 leading-relaxed">
+                        Your audit request has been successfully submitted. Our team will review your website and get back to you within 48 hours.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => setFormStatus(null)}
+                        className="w-full py-3 rounded-xl bg-[#0055DF] hover:bg-blue-600 text-white font-bold transition-all shadow-md"
+                      >
+                        Great, thanks!
+                      </button>
+                    </div>
                   </div>
                 )}
 
                 {formStatus === 'error' && (
                   <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-brand-accentRed text-sm font-semibold">
-                    ✗ Simulation successful! Local lead data has been logged to console.
+                    ✗ Failed to submit audit request. Please check your connection and try again.
                   </div>
                 )}
 

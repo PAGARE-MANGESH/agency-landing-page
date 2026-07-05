@@ -132,12 +132,12 @@ export default function Chatbot() {
               <span className="text-[10px] text-slate-400 dark:text-slate-500 font-extrabold uppercase text-left pl-1">
                 Suggested Questions
               </span>
-              <div className="flex flex-col gap-1.5 max-h-[140px] overflow-y-auto pr-1">
+              <div className="flex flex-row gap-2 overflow-x-auto pb-2 pr-1 custom-scrollbar snap-x snap-mandatory">
                 {qaData.map((qa, index) => (
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(qa)}
-                    className="w-full text-left text-[11px] sm:text-xs font-bold p-2 bg-slate-50 dark:bg-slate-950 hover:bg-blue-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-[#0055DF] dark:hover:text-blue-400 border border-slate-100 dark:border-slate-800/80 rounded-xl transition-all"
+                    className="flex-shrink-0 snap-start text-left text-[11px] sm:text-xs font-bold px-3 py-2 bg-slate-50 dark:bg-slate-950 hover:bg-blue-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-[#0055DF] dark:hover:text-blue-400 border border-slate-100 dark:border-slate-800/80 rounded-xl transition-all max-w-[200px] whitespace-normal"
                   >
                     {qa.question}
                   </button>
